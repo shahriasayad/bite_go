@@ -1,0 +1,23 @@
+import 'package:bite_go/core/binding/controller_binder.dart';
+import 'package:bite_go/routes/app_routes.dart';
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    //SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+
+    return GetMaterialApp(
+      debugShowCheckedModeBanner: false,
+      initialRoute: AppRoute.getSplashScreen(),
+      getPages: AppRoute.routes,
+      builder: EasyLoading.init(),
+      initialBinding: ControllerBinder(),
+      themeMode: ThemeMode.light,
+    );
+  }
+}
